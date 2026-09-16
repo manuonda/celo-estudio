@@ -8,8 +8,8 @@
     "compile": "hardhat compile",
     "test": "hardhat test",
     "deploy": "hardhat ignition deploy ignition/modules/Lock.ts",
-    "deploy:celo-sepolia": "hardhat ignition deploy ignition/modules/Lock.ts --network celo-sepolia",
-    "deploy:celo": "hardhat ignition deploy ignition/modules/Lock.ts --network celo",
+    "deploy:celo-sepolia": "HARDHAT_TELEMETRY_CONSENT=false hardhat ignition deploy ignition/modules/Lock.ts --network celo-sepolia",
+    "deploy:celo": "HARDHAT_TELEMETRY_CONSENT=false hardhat ignition deploy ignition/modules/Lock.ts --network celo",
     "verify": "hardhat verify",
     "clean": "hardhat clean",
     "typechain": "hardhat typechain"
@@ -37,6 +37,7 @@
     "@types/chai": "^4.2.0",
     "@types/mocha": ">=9.1.0",
     "chai": "^4.2.0",
+    "dotenv": "^16.6.1",
     "ethers": "^6.4.0",
     "hardhat": "^2.19.0",
     "hardhat-gas-reporter": "^1.0.8",

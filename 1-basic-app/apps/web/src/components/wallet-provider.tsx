@@ -1,8 +1,12 @@
 "use client"
 
-import { useState, useEffect } from 'react'
 import '@rainbow-me/rainbowkit/styles.css'
 import { getDefaultConfig, RainbowKitProvider } from '@rainbow-me/rainbowkit'
+import {
+  injectedWallet,
+  metaMaskWallet,
+  walletConnectWallet,
+} from '@rainbow-me/rainbowkit/wallets'
 import { WagmiProvider } from 'wagmi'
 import { celo, celoSepolia } from 'wagmi/chains'
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query'
@@ -16,11 +20,17 @@ function getWagmiConfig() {
     config = getDefaultConfig({
       appName: '1-basic-app',
       projectId: process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID || 'YOUR_PROJECT_ID',
-      chains: [celo, celoSepolia],
+      chains: [celoSepolia, celo],
       transports: {
+        [celoSepolia.id]: http("https://forno.celo-sepolia.celo-testnet.org"),
         [celo.id]: http(),
-        [celoSepolia.id]: http(),
       },
+      wallets: [
+        {
+          groupName: 'Suggested',
+          wallets: [injectedWallet, metaMaskWallet, walletConnectWallet],
+        },
+      ],
       ssr: true,
     })
   }
@@ -39,7 +49,7 @@ function WalletProviderInner({ children }: { children: React.ReactNode }) {
   return (
     <WagmiProvider config={getWagmiConfig()}>
       <QueryClientProvider client={queryClient}>
-        <RainbowKitProvider>
+        <RainbowKitProvider initialChain={celoSepolia}>
           {children}
         </RainbowKitProvider>
       </QueryClientProvider>
@@ -48,16 +58,5 @@ function WalletProviderInner({ children }: { children: React.ReactNode }) {
 }
 
 export function WalletProvider({ children }: { children: React.ReactNode }) {
-  const [mounted, setMounted] = useState(false)
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-
-  // Show children without wallet functionality during SSR
-  if (!mounted) {
-    return <>{children}</>
-  }
-
   return <WalletProviderInner>{children}</WalletProviderInner>
 }
