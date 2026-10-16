@@ -140,3 +140,8 @@ pnpm contracts:deploy:celo-sepolia  # Sepolia (dotenv + telemetría off)
 ## Next step
 
 Anotar la dirección que imprimió Ignition y abrirla en el explorer. La home puede desplegar **otro** Lock con MetaMask; no reemplaza el que ya está en Sepolia.
+
+
+## Recursos 
+Creacion de Sonidos: suno.com
+Creacion de Videos: midjourney.com/imagine
