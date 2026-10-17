@@ -145,3 +145,13 @@ Anotar la dirección que imprimió Ignition y abrirla en el explorer. La home pu
 ## Recursos 
 Creacion de Sonidos: suno.com
 Creacion de Videos: midjourney.com/imagine
+Self: Verificacion para zk , un limitead de edad . Validar su identidad . Zk. Es un validador 
+      de zk. 
+Celo: Costos bajos de transacciones.
+FileIcon: Almacenamiento de imagenes descentralizadas.
+Aave: Invests your capital in Defi.
+trynoha: 
+
+
+Documentacion: https://arturogrande.notion.site/Celo-Argentina-283e127966af802085d9c0a1d238f701
+https://www.youtube.com/watch?v=gKiC82ligLA&t=1796s
